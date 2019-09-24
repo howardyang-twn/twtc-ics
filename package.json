@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "express": "^4.17.1",
+    "fast-xml-parser": "^3.12.20",
+    "ics": "^2.16.0",
+    "jshint": "^2.10.2",
+    "moment": "^2.24.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4"
+  },
+  "jshintConfig": {
+    "esversion": 8
+  }
+}
