@@ -3,7 +3,7 @@ const rp = require('request-promise');
 const parser = require('fast-xml-parser');
 const express = require('express');
 const ics = require('ics');
-const port = 80;
+const port = process.env.PORT || 80;
 const app = express();
 
 app.get('/', async (req, res) => {
