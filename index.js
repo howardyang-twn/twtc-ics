@@ -40,8 +40,9 @@ const transform = async () => {
     .map(a => {
         let {title, location, date} = a;
         let [start, end] = date.split('～')
-        .map(d => d.substr(0, 10).replace(/\//g,'-'))
-        .map(d => moment(d).format('YYYY-M-D').split("-"));
+        .map(d => d.substr(0, 10).replace(/\//g,'-'));
+        start = moment(start).format('YYYY-M-D').split("-");
+        end = moment(end).add(1, 'days').format('YYYY-M-D').split("-");
 
         events.push({start, end, title, location, 
             startOutputType: 'local', 
