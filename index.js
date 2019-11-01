@@ -41,14 +41,17 @@ const transform = async () => {
         let {title, location, date} = a;
         let [start, end] = date.split('～')
         .map(d => d.substr(0, 10).replace(/\//g,'-'))
-        .map(d => moment(d).format('YYYY-M-D-9-0').split("-"));
+        .map(d => moment(d).format('YYYY-M-D').split("-"));
 
-        events.push({start, end, title, location, alarms: [{
-            action: 'audio', 
-            trigger: {days:1, before: true}, 
-            attachType:'VALUE=URI', 
-            attach: 'Glass'
-        }]});
+        events.push({start, end, title, location, 
+            startOutputType: 'local', 
+            alarms: [{
+                action: 'audio', 
+                trigger: {days:1, before: true}, 
+                attachType:'VALUE=URI', 
+                attach: 'Glass'
+            }]
+        });
     });
 
     return ics.createEvents(events);
